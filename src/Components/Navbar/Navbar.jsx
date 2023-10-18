@@ -46,15 +46,15 @@ const Navbar = () => {
             </NavLink>
             
           </div>
-{/*===== About Us ====== */} 
+{/*===== Add Product ====== */} 
           <div className="">
             <NavLink
-              to="/aboutus"
+              to="/addproduct"
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "active" : ""
               }
             >
-              About Us
+              Add Product
             </NavLink>
             
           </div>
