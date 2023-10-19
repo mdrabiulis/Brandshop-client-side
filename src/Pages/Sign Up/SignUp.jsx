@@ -3,8 +3,10 @@
 import { useState } from "react";
 
 import { FaEyeSlash, FaEye } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Googlelogin from "../Google/Googlelogin";
+import Swal from "sweetalert2";
+import useAuthContext from "../../Components/Hooks/useAuthContext";
 
 
 
@@ -14,21 +16,72 @@ import Googlelogin from "../Google/Googlelogin";
 
 
 const SignUp = () => {
- 
+ const {createNewUser, userUpdateProfile} = useAuthContext()
   const [showPassword, setShowPassword] = useState(false);
+  const [userErro, setUserError] = useState("");
+  const [createSuccessful, setCreateSuccessful] = useState("");
+  const navigate = useNavigate();
 
 
 
 
-//   const hendleRegister = (e) => {
-//     e.preventDefault();
-//     const from = new FormData(e.currentTarget);
-//     const name = from.get("name");
-//     const email = from.get("email");
-//     const photo = from.get("photo");
-//     const password = from.get("password");
+  const hendleSignUp = (e) => {
+    e.preventDefault();
+    const from = e.target;
+    const name = from.name.value;
+    const email = from.email.value;
+    const photo = from.photo.value;
+    const password = from.password.value;
+console.log(name, email, photo, password);
 
- 
+setUserError("");
+setCreateSuccessful("");
+
+if (!/^(?=.*[0-9])(?=.*[A-Z])(?=.*[@$!%*#?&]).{7,12}$/.test(password)) {
+// if (!/(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{7,12}$/.test(password)) {
+  Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: `Password must contain one digit from 1 to 9 , one uppercase letter, a special character and it must be 7-12 characters long.!  Example: Aa123@#$ `,
+    footer: '<a href="">Why do I have this issue?</a>',
+  });
+  return;
+}
+else {
+  createNewUser(email, password)
+    .then((result) => {
+      console.log(result.user);
+      userUpdateProfile(name,photo)
+      .then(() => {
+        // window.location.reload();
+      })
+      .catch(() => {})
+      setCreateSuccessful("Create Account Successful");
+      Swal.fire({
+        icon: 'success',
+        title: 'Create Account Successful...',
+        text: '',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
+      navigate("/")
+    })
+    .catch((error) => {
+      setUserError(error.message);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
+    });
+}
+
+
+
+
+
+
+  }
 
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -37,10 +90,9 @@ const SignUp = () => {
           <h1 className="text-5xl font-bold">SignUp Now</h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form
-            
-            className="card-body w-[450px] bg-[#d6d5b5] rounded-md "
-          >
+          <form onSubmit={hendleSignUp} className="card-body w-[450px] bg-[#d6d5b5] rounded-md ">
+
+            {/* =============== name ====================== */}
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Your Name</span>
@@ -53,6 +105,8 @@ const SignUp = () => {
                 required
               />
             </div>
+
+  {/* =============== email ====================== */}
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -65,6 +119,7 @@ const SignUp = () => {
                 required
               />
             </div>
+  {/* =============== photo ====================== */}
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Your photo url </span>
@@ -77,6 +132,8 @@ const SignUp = () => {
                 required
               />
             </div>
+
+     {/* =============== password ====================== */}
             <div className="form-control relative">
               <label className="label">
                 <span className="label-text">Password</span>
@@ -96,6 +153,14 @@ const SignUp = () => {
             </span>
               
             </div>
+            {userErro && (
+              <p className="text-xl font-bold text-red-600">{userErro}</p>
+            )}
+            {createSuccessful && (
+              <p className="text-xl font-bold text-green-700">
+                {createSuccessful}
+              </p>
+            )}
            
           
             <div className="form-control mt-6">

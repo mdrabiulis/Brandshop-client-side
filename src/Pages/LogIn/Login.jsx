@@ -3,24 +3,58 @@
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { useState } from "react";
 // import { FaEyeSlash, FaEye } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Googlelogin from "../Google/Googlelogin";
+import useAuthContext from "../../Components/Hooks/useAuthContext";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
-
-    const [showPassword, setShowPassword] = useState(false);
-
-
-  const hendleLogin = event => {
-    event.preventDefault();
-    const from = new FormData(event.currentTarget);
-    const email = from.get("email");
-    const Password = from.get("password");
-    console.log(email, Password);
-  }
+  const { LoginUser} = useAuthContext();
+  const [userLoginErro, setUserLoginErro] = useState("");
+  const [loginUserSuccessful, setLoginUserSuccessful] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
 
+
+  const hendleLogin = (e) => {
+    e.preventDefault();
+    const from = e.target;
+    const email = from.email.value;
+    const password = from.password.value;
+
+
+
+    setUserLoginErro("");
+    setLoginUserSuccessful("");
+
+    
+    LoginUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+        setLoginUserSuccessful("Login Successful");
+        // navigate(location?.state? location.state : "/")
+        Swal.fire({
+          icon: 'success',
+          title: 'Login Successful...',
+          text: '',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+        navigate(location?.state? location.state : "/")
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setUserLoginErro(error.message);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+      });
+  };
 
 
   return (
@@ -67,7 +101,14 @@ const Login = () => {
                 </a>
               </label>
             </div>
-            
+            {userLoginErro && (
+              <p className="text-xl font-bold text-red-600">{userLoginErro}</p>
+            )}
+            {loginUserSuccessful && (
+              <p className="text-xl font-bold text-green-700">
+                {loginUserSuccessful}
+              </p>
+            )}
             <div className="form-control mt-6">
               <button className="bg-[#FF6224] text-white font-roboto text-xl font-bold rounded-md h-10">
                 Login

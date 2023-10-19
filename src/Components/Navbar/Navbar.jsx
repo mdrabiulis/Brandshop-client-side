@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 // import logo from '/public/404/logo.png'
 import logo from '../../../public/404/logo2.png'
 import "./navebar.css"
+import useAuthContext from '../Hooks/useAuthContext';
 
 
 
@@ -9,6 +10,32 @@ import "./navebar.css"
 
 
 const Navbar = () => {
+
+
+
+
+  const { user, SignOutUser, loading } = useAuthContext();
+
+  if (loading) {
+    return <span className="loading loading-spinner text-secondary"></span>;
+  }
+
+  const SignOutUse = () => {
+    SignOutUser()
+      .then((res) => {
+        console.log(res.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+
+
+
+
+
+
     return (
         // <div  className="mx-auto grid grid-cols-3 justify-between items-center border ">
         <div  className="flex flex-col md:flex-col lg:flex-row justify-between items-center border mx-10">
@@ -77,34 +104,52 @@ const Navbar = () => {
 
 {/* =========== log in============== */}
 
+<div className="ml-40 md:ml-72 lg:ml-0 mb-4 md:mb-0">
+<div className="flex gap-4 items-center">
+      {user && (
+          <>
+            {user.displayName}
+            <div className="avatar ">
+              <div className="w-10 rounded-full">
+                <img src={user.photoURL} />
+              </div>
+            </div>
+          </>
+        )}
 
-
-
-            <div className="flex gap-6 text-xl font-semibold font-roboto">
-                 {/*===== Login ====== */}
-            <div className="">              
-            <NavLink 
+        <div className="flex gap-6 text-xl font-semibold font-roboto">
+          {/* ==== login==== */}
+          <NavLink
             to="/login"
             className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "active" : ""
             }
           >
-            Login
+            {user ? (
+              <button onClick={SignOutUse} className="">
+                Sign Out
+              </button>
+            ) : (
+              <button className="">Login</button>
+            )}
           </NavLink>
-            </div>
 
-    {/*===== signup ====== */}
-            <div className="">
-            <NavLink 
-            to="/signup"
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "active" : ""
-            }
-          >
-            Sign Up
-          </NavLink>
-            </div>
-            </div>
+          {/*==== signup ==== */}
+
+         {
+          user? '': <NavLink
+          to="/signup"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          Sign Up
+        </NavLink>
+         }
+        </div>
+      </div>
+</div>
+
         </div>
     );
 };
