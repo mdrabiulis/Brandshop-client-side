@@ -1,7 +1,6 @@
-import Swal from "sweetalert2";
 
-const Category = () => {
-  const handelAddProduct = (event) => {
+const UpdateProduct = () => {
+  const handelUpdateProduct = (event) => {
     event.preventDefault();
     const from = event.target;
     const Name = from.Name.value;
@@ -21,25 +20,6 @@ const Category = () => {
       description,
     };
     console.log(products);
-
-    fetch("http://localhost:5000/products", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(products),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            icon: "success",
-            title: "success",
-            text: "Add your products successfully ....",
-          });
-        }
-      });
   };
   return (
     <div className="">
@@ -47,7 +27,7 @@ const Category = () => {
         <div className="text-center px-52">
           <h2 className="text-[45px] text-[#374151]">Add Product</h2>
         </div>
-        <form onSubmit={handelAddProduct}>
+        <form onSubmit={handelUpdateProduct}>
           <div className="grid grid-cols-2 gap-5 ">
             <div className="">
               {/*================  Name   =======================  */}
@@ -60,6 +40,7 @@ const Category = () => {
                 <input
                   type="text"
                   name="Name"
+                  //   defaultValue={Name}
                   placeholder="Enter products Name"
                   className="input input-bordered font-raleway "
                   // required
@@ -70,13 +51,14 @@ const Category = () => {
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-[20px] font-semibold text-[#1b1a1acc]">
-                    Photo Url
+                  Photo Url
                   </span>
                 </label>
                 <input
                   type="url"
                   name="Photo"
-                  placeholder="Enter products Photo url"
+                //   defaultValue={Photo}
+                  placeholder="Enter products Photo Url"
                   className="input input-bordered font-raleway"
                   // required
                 />
@@ -92,6 +74,7 @@ const Category = () => {
                 <input
                   type="text"
                   name="Category"
+                  //   defaultValue={Category}
                   placeholder="Enter products category"
                   className="input input-bordered font-raleway"
                   // required
@@ -191,4 +174,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default UpdateProduct;

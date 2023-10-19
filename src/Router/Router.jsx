@@ -6,6 +6,14 @@ import AboutUs from "../Pages/About Us/AboutUs";
 import AddProduct from "../Pages/Add Product/AddProduct";
 import Login from "../Pages/LogIn/Login";
 import SignUp from "../Pages/Sign Up/SignUp";
+import Private from "../Pages/Private/Private";
+import UpdateProduct from "../Components/Update/UpdateProduct";
+import Hp from "../BrandPages/Hp/Hp";
+import Oneplus from "../BrandPages/Oneplus/Oneplus";
+import Samsung from "../BrandPages/Samsung/Samsung";
+import Lenovo from "../BrandPages/Lenovo/Lenovo";
+import Apple from "../BrandPages/Apple/Apple";
+import Google from "../BrandPages/Google/Google";
 
 
 const myRouter = createBrowserRouter([
@@ -24,7 +32,8 @@ const myRouter = createBrowserRouter([
       },
       {
         path: "/addproduct",
-        element: <AddProduct></AddProduct>,
+        element: <Private><AddProduct></AddProduct></Private>
+        // element: <AddProduct></AddProduct>,
       
       },
       {
@@ -37,18 +46,36 @@ const myRouter = createBrowserRouter([
         element: <SignUp></SignUp>
       
       },
-
       {
-       
+        path: "/updateproduct",
+        element: <UpdateProduct></UpdateProduct>
+      
+      },
+      
+      {
+       path:'/Hp',
+       element:<Hp></Hp>
       },
       {
-       
+       path:"/Oneplus",
+       element:<Oneplus></Oneplus>
       },
       {
-        
+        path:"/Samsung",
+        element:<Samsung></Samsung>
       },
-      {},
-      {},
+      {
+        path:"/Lenovo",
+        element:<Lenovo></Lenovo>
+      },
+      {
+        path:"/Apple",
+        element:<Apple></Apple>
+      },
+      {
+        path:"/Google",
+        element:<Google></Google>
+      },
       {},
       {},
       {},
