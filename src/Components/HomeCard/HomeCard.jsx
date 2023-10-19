@@ -20,7 +20,7 @@ const HomeCard = () => {
         <Link to={`/${card.title}`}>
         <div className="card card-compact bg-base-100 shadow-xl">
          <figure>
-           <img className="w-80 h-72"
+           <img className="w-80 h-72 rounded-md"
              src={card.img}
              alt={card.title}
            />

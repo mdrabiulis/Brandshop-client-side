@@ -47,8 +47,9 @@ const myRouter = createBrowserRouter([
       
       },
       {
-        path: "/updateproduct",
-        element: <UpdateProduct></UpdateProduct>
+        path: "/updateproduct/:id",
+        element: <UpdateProduct></UpdateProduct>,
+        loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
       
       },
       
@@ -76,7 +77,9 @@ const myRouter = createBrowserRouter([
         path:"/Google",
         element:<Google></Google>
       },
-      {},
+      {
+
+      },
       {},
       {},
     ],
