@@ -76,6 +76,7 @@ const loginGoogleUser = () =>{
 
 
 const userUpdateProfile =(name, photo)=>{
+  
     return updateProfile(auth.currentUser, {
         displayName: name , photoURL: photo,
       })

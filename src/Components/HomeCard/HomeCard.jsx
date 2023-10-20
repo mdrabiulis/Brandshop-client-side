@@ -14,7 +14,7 @@ const HomeCard = () => {
   }, []);
 
   return (
-    <div className="max-w-[1200px] mx-auto grid grid-cols-3 gap-8">
+    <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {cards.map((card) => (
         <div key={card.id}>
         <Link to={`/${card.title}`}>

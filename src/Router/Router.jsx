@@ -16,7 +16,7 @@ import Apple from "../BrandPages/Apple/Apple";
 import Google from "../BrandPages/Google/Google";
 import Details from "../Components/Details/Details";
 import Mycart from "../Pages/My Cart/Mycart";
-import NewMyCard from "../Pages/My Cart/NewMyCard";
+
 
 
 const myRouter = createBrowserRouter([

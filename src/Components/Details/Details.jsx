@@ -10,10 +10,10 @@ const Details = () => {
   const { user} = useAuthContext();
   const detailsData = useLoaderData();
 
+// console.log(user.uid);
 
-  const userName =(user.email);
 
-  const {_id,  Name, Photo, Category, BrandName, Price, Rating, description } =
+  const {  Name, Photo, Category, BrandName, Price, Rating, description } =
     detailsData;
 
    
@@ -28,19 +28,10 @@ useEffect(()=>{
 
 
 
-  const handleAddtoCard = (Name, Photo, Category, BrandName, Price, Rating, description, userName) => {
+  const handleAddtoCard = (Name, Photo, Category, BrandName, Price, Rating, description) => {
 
-
-
-
-
-
-
-
-
-
-
-    const userinfo={ Name, Photo, Category, BrandName, Price, Rating, description,userName }
+    // const userinfo={ Name, Photo, Category, BrandName, Price, Rating, description,userName:user?.email }
+    const userinfo={ Name, Photo, Category, BrandName, Price, Rating, description,userName:user?.uid }
 
 console.log(userinfo);
   fetch("http://localhost:5000/addcart", {
@@ -79,7 +70,7 @@ console.log(userinfo);
             </div>
             
             <p className="py-6">{description}</p>
-            <Link to={`/addcarts/${userName}`}><button onClick={()=>handleAddtoCard(Name, Photo, Category, BrandName, Price, Rating, description,userName )} className="btn btn-primary">Add to Card</button></Link>
+            <Link to={`/addcarts/${user?.uid}`}><button onClick={()=>handleAddtoCard(Name, Photo, Category, BrandName, Price, Rating, description )} className="btn btn-primary">Add to Card</button></Link>
           </div>
         </div>
       </div>
