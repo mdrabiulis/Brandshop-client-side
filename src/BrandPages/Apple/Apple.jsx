@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import Applecard from "./Applecard";
 import Swal from "sweetalert2";
+import Swiperslider from "../../Components/Swiper/Swiperslider ";
 
 // import Swiperslider from "../../Components/Swiper/Swiperslider ";
 
 const Apple = () => {
   const [apple, setApple] = useState([]);
-  // const [alldata, setAlldata] = useState([]);
+
 
 
 
@@ -36,7 +37,7 @@ const Apple = () => {
 
   return (
     <div >
-      {/* <Swiperslider apple={apple}></Swiperslider> */}
+      <Swiperslider ></Swiperslider>
       <div className="grid grid-cols-3 gap-8 max-w-7xl mx-auto">
         {apple.map((phon) => (
           <Applecard 

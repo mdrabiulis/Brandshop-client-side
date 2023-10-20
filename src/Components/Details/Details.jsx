@@ -1,25 +1,49 @@
 
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Ratings from "../Ratings/Ratings";
+import { useEffect } from "react";
 import useAuthContext from "../Hooks/useAuthContext";
 
 
 const Details = () => {
+
   const { user} = useAuthContext();
   const detailsData = useLoaderData();
-  const { _id, Name, Photo, Category, BrandName, Price, Rating, description } =
+
+
+  const userName =(user.email);
+
+  const {_id,  Name, Photo, Category, BrandName, Price, Rating, description } =
     detailsData;
 
-  console.log(user);
+   
+
+useEffect(()=>{
+  fetch('http://localhost:5000/user')
+  .then(res => res.json())
+  .then(data => {(data);
+  })
+},[])
 
 
-  const handleAddtoCard = (Name, Photo, Category, BrandName, Price, Rating, description) => {
 
-    const userinfo={ Name, Photo, Category, BrandName, Price, Rating, description }
 
-    // console.log(Name, Photo, Category, BrandName, Price, Rating, description,"rabil");
+  const handleAddtoCard = (Name, Photo, Category, BrandName, Price, Rating, description, userName) => {
 
-  fetch("http://localhost:5000/user", {
+
+
+
+
+
+
+
+
+
+
+    const userinfo={ Name, Photo, Category, BrandName, Price, Rating, description,userName }
+
+console.log(userinfo);
+  fetch("http://localhost:5000/addcart", {
     method: "post",
     headers: {
       "Content-Type": "application/json",
@@ -29,20 +53,14 @@ const Details = () => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-     
+      
     });
-
-
-
   }
-
-
-
-
-
-
+  
   return (
     <div>
+  
+      
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img src={Photo} className="max-w-sm rounded-lg shadow-2xl" />
@@ -61,7 +79,7 @@ const Details = () => {
             </div>
             
             <p className="py-6">{description}</p>
-            <button onClick={()=>handleAddtoCard(Name, Photo, Category, BrandName, Price, Rating, description)} className="btn btn-primary">Add to Card</button>
+            <Link to={`/addcarts/${userName}`}><button onClick={()=>handleAddtoCard(Name, Photo, Category, BrandName, Price, Rating, description,userName )} className="btn btn-primary">Add to Card</button></Link>
           </div>
         </div>
       </div>

@@ -15,6 +15,8 @@ import Lenovo from "../BrandPages/Lenovo/Lenovo";
 import Apple from "../BrandPages/Apple/Apple";
 import Google from "../BrandPages/Google/Google";
 import Details from "../Components/Details/Details";
+import Mycart from "../Pages/My Cart/Mycart";
+import NewMyCard from "../Pages/My Cart/NewMyCard";
 
 
 const myRouter = createBrowserRouter([
@@ -34,8 +36,7 @@ const myRouter = createBrowserRouter([
       {
         path: "/addproduct",
         element: <Private><AddProduct></AddProduct></Private>
-        // element: <AddProduct></AddProduct>,
-      
+
       },
       {
         path: "/login",
@@ -84,9 +85,13 @@ const myRouter = createBrowserRouter([
         loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
       },
       {
+        path:"/addcarts/:userName",
+        element:<Private><Mycart></Mycart></Private>,
+        loader: ({params})=> fetch(`http://localhost:5000/addcarts/${params.userName}`)
+      },
+      {
 
       },
-      {},
     ],
   },
 ]);

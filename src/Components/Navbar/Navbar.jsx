@@ -16,6 +16,7 @@ const Navbar = () => {
 
   const { user, SignOutUser, loading } = useAuthContext();
 
+
   if (loading) {
     return <span className="loading loading-spinner text-secondary"></span>;
   }
@@ -85,15 +86,18 @@ const Navbar = () => {
             </NavLink>
             
           </div>
-{/*===== About Us ====== */} 
+
+
+          
+{/*===== My Cart ====== */} 
           <div className="">
             <NavLink
-              to="/aboutus"
+              to={`/addcarts/${user.email}`}
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "active" : ""
               }
             >
-              About Us
+            My Cart
             </NavLink>
             
           </div>

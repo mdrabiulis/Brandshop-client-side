@@ -6,6 +6,13 @@ import Applecard from "../Apple/Applecard";
 const Samsung = () => {
   const [lenovo, setLenovo] = useState([]);
 
+  useEffect(()=>{
+    fetch('')
+    .then((res) => res.json())
+    .then(data=> console.log(data))
+  },[])
+
+
   useEffect(() => {
     fetch("http://localhost:5000/products/Samsung")
       .then((res) => res.json())
