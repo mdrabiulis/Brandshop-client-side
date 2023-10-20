@@ -14,6 +14,7 @@ import Samsung from "../BrandPages/Samsung/Samsung";
 import Lenovo from "../BrandPages/Lenovo/Lenovo";
 import Apple from "../BrandPages/Apple/Apple";
 import Google from "../BrandPages/Google/Google";
+import Details from "../Components/Details/Details";
 
 
 const myRouter = createBrowserRouter([
@@ -48,7 +49,7 @@ const myRouter = createBrowserRouter([
       },
       {
         path: "/updateproduct/:id",
-        element: <UpdateProduct></UpdateProduct>,
+        element: <Private><UpdateProduct></UpdateProduct></Private>,
         loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
       
       },
@@ -78,9 +79,13 @@ const myRouter = createBrowserRouter([
         element:<Google></Google>
       },
       {
+        path:"/details/:id",
+        element:<Details></Details>,
+        loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
+      },
+      {
 
       },
-      {},
       {},
     ],
   },

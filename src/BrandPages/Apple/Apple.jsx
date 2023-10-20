@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Applecard from "./Applecard";
 import Swal from "sweetalert2";
 
-import Swiperslider from "../../Components/Swiper/Swiperslider ";
+// import Swiperslider from "../../Components/Swiper/Swiperslider ";
 
 const Apple = () => {
   const [apple, setApple] = useState([]);

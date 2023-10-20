@@ -5,7 +5,7 @@ const UpdateProduct = () => {
   const updateProductId = useLoaderData();
   const {_id, Name, Photo, Category, BrandName, Price, Rating, description } =
     updateProductId;
-  console.log(_id);
+  
 
   const handelUpdateProduct = (event) => {
     event.preventDefault();
@@ -52,7 +52,7 @@ const UpdateProduct = () => {
   };
   return (
     <div className="">
-      <div className="max-w-[1320px] min-h-[70vh]  mx-auto  bg-base-200 px-8 rounded">
+      <div className="max-w-[1320px] min-h-[70vh]  mx-auto  bg-base-200 px-8 rounded mt-10">
         <div className="text-center px-52">
           <h2 className="text-[45px] text-[#374151]">Update Product</h2>
         </div>

@@ -22,12 +22,13 @@ const Applecard = ({ phon }) => {
     <p>{description}</p>
     <div className="card-actions justify-between">
       <Link to={`/updateproduct/${_id}`}><button className="btn btn-primary">Update</button></Link>
-      <button className="btn btn-primary">Details</button>
+      <Link to={`/details/${_id}`}><button className="btn btn-primary">Details</button></Link>
     </div>
   </div>
 </div>
    </div>
   );
 };
+
 
 export default Applecard;
