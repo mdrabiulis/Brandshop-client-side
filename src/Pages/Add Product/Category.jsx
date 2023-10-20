@@ -1,6 +1,8 @@
 import Swal from "sweetalert2";
 
 const Category = () => {
+  
+
   const handelAddProduct = (event) => {
     event.preventDefault();
     const from = event.target;
@@ -12,6 +14,7 @@ const Category = () => {
     const Rating = from.Rating.value;
     const description = from.description.value;
     const products = {
+     
       Name,
       Photo,
       Category,
@@ -20,7 +23,7 @@ const Category = () => {
       Rating,
       description,
     };
-    console.log(products);
+    // console.log(user);
 
     fetch("http://localhost:5000/products", {
       method: "post",
@@ -31,7 +34,7 @@ const Category = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.insertedId) {
           Swal.fire({
             icon: "success",

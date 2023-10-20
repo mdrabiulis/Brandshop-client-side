@@ -1,14 +1,45 @@
-import { useEffect, useState } from "react";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+
+import { useLoaderData } from "react-router-dom";
 import Ratings from "../Ratings/Ratings";
-// import Card from "./Card";
+import useAuthContext from "../Hooks/useAuthContext";
+
 
 const Details = () => {
+  const { user} = useAuthContext();
   const detailsData = useLoaderData();
   const { _id, Name, Photo, Category, BrandName, Price, Rating, description } =
     detailsData;
 
-  console.log(detailsData);
+  console.log(user);
+
+
+  const handleAddtoCard = (Name, Photo, Category, BrandName, Price, Rating, description) => {
+
+    const userinfo={ Name, Photo, Category, BrandName, Price, Rating, description }
+
+    // console.log(Name, Photo, Category, BrandName, Price, Rating, description,"rabil");
+
+  fetch("http://localhost:5000/user", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userinfo),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+     
+    });
+
+
+
+  }
+
+
+
+
+
 
   return (
     <div>
@@ -30,12 +61,13 @@ const Details = () => {
             </div>
             
             <p className="py-6">{description}</p>
-            <button className="btn btn-primary">Add to Card</button>
+            <button onClick={()=>handleAddtoCard(Name, Photo, Category, BrandName, Price, Rating, description)} className="btn btn-primary">Add to Card</button>
           </div>
         </div>
       </div>
     </div>
   );
 };
+
 
 export default Details;

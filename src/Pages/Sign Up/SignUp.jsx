@@ -53,6 +53,23 @@ else {
       console.log(result.user);
       userUpdateProfile(name,photo)
       .then(() => {
+        // const user = {email}
+        // fetch("http://localhost:5000/user", {
+        //   method: "post",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify(user),
+        // })
+        //   .then((res) => res.json())
+        //   .then((data) => {
+        //     console.log(data);
+           
+        //   });
+
+
+
+
         // window.location.reload();
       })
       .catch(() => {})
