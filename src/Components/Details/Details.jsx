@@ -12,9 +12,7 @@ const Details = () => {
     detailsData;
 
   useEffect(() => {
-    fetch(
-      "https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/user"
-    )
+    fetch("http://localhost:5000/user")
       .then((res) => res.json())
       .then((data) => {
         data.acknowledged
@@ -49,16 +47,13 @@ const Details = () => {
       userName: user?.uid,
     };
 
-    fetch(
-      "https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/addcart",
-      {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userinfo),
-      }
-    )
+    fetch("http://localhost:5000/addcart", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userinfo),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (!data.insertedId === false) {

@@ -34,7 +34,7 @@ const Navbar = () => {
 
    {/* ============= manus================ */}
 
-      <div className=" flex gap-6 text-xl font-semibold font-roboto">
+      <div className=" flex flex-wrap mx-5 md:mx-0 gap-6 text-xl font-semibold font-roboto">
    {/*===== Home ====== */}
         <div className="">
           <NavLink
@@ -47,6 +47,44 @@ const Navbar = () => {
           </NavLink>
         </div>
 
+
+ {/* =========== Collections========== */}
+ <div className="">
+          <NavLink
+            to="/collections"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+          >
+            Collections
+          </NavLink>
+        </div>
+
+{/*============== Offers ==================== */}
+<div className="">
+          <NavLink
+            to="/offers"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+          >
+            Offers
+          </NavLink>
+        </div>
+
+{/*============== Blogs ==================== */}
+<div className="">
+          <NavLink
+            to="/blogs"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+          >
+            Blogs
+          </NavLink>
+        </div>
+
+
     {/*===== About Us ====== */}
         <div className="">
           <NavLink
@@ -58,8 +96,11 @@ const Navbar = () => {
             About Us
           </NavLink>
         </div>
+
+
+
     {/*===== Add Product ====== */}
-        <div className="">
+    {user && <div className="">
           <NavLink
             to="/addproduct"
             className={({ isActive, isPending }) =>
@@ -69,6 +110,7 @@ const Navbar = () => {
             Add Product
           </NavLink>
         </div>
+        }
 
    {/*===== My Cart ====== */}
 

@@ -22,16 +22,13 @@ const Category = () => {
     };
     // console.log(user);
 
-    fetch(
-      "https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/products",
-      {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(products),
-      }
-    )
+    fetch("http://localhost:5000/products", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(products),
+    })
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

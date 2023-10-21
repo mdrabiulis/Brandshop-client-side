@@ -4,7 +4,7 @@ import "swiper/css";
 import un from '/Images/Untitled-1.png'
 import un_2 from '/Images/Untitled-2.png'
 import un_3 from '/Images/Untitled-3.png'
-import un_4 from '/Images/Untitled-4.png'
+// import un_4 from '/Images/Untitled-4.png'
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';

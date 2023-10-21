@@ -17,13 +17,10 @@ const AddtoCart = ({ cart, allAddtoCart, setAllAddtoCart }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        // fetch(`http://localhost:5000/addcart/${_id}`, {
-        fetch(
-          `https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/addcart/${_id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        // fetch(`http://localhost:5000addcart/${_id}`, {
+        fetch(`http://localhost:5000/addcart/${_id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             // console.log(data);

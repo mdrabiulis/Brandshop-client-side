@@ -55,9 +55,7 @@ const myRouter = createBrowserRouter([
           </Private>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/product/${params.id}`
-          ),
+          fetch(`http://localhost:5000/product/${params.id}`),
       },
 
       {
@@ -82,15 +80,13 @@ const myRouter = createBrowserRouter([
       },
       {
         path: "/Google",
-        element: <Google></Google>,
+        element: <Private><Google></Google></Private>,
       },
       {
         path: "/details/:id",
-        element: <Details></Details>,
+        element: <Private><Details></Details></Private>,
         loader: ({ params }) =>
-          fetch(
-            `https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/product/${params.id}`
-          ),
+          fetch(`http://localhost:5000/product/${params.id}`),
       },
       {
         path: "/addcarts/:userName",
@@ -100,9 +96,7 @@ const myRouter = createBrowserRouter([
           </Private>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/addcarts/${params.userName}`
-          ),
+          fetch(`http://localhost:5000/addcarts/${params.userName}`),
       },
       {},
     ],

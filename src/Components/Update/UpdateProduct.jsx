@@ -26,16 +26,13 @@ const UpdateProduct = () => {
       description,
     };
 
-    fetch(
-      `https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/product/${_id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(products),
-      }
-    )
+    fetch(`http://localhost:5000/product/${_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(products),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

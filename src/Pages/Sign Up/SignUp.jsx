@@ -41,16 +41,13 @@ const SignUp = () => {
           userUpdateProfile(name, photo)
             .then(() => {
               const user = { email };
-              fetch(
-                "https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/user",
-                {
-                  method: "post",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify(user),
-                }
-              )
+              fetch("http://localhost:5000/user", {
+                method: "post",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user),
+              })
                 .then((res) => res.json())
                 .then((data) => {
                   console.log(data);
