@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Ratings from "../../Components/Ratings/Ratings";
+import PropTypes from 'prop-types';
 
 const Applecard = ({ phon }) => {
 
@@ -7,7 +8,7 @@ const Applecard = ({ phon }) => {
 
 
 
-  const {_id, Name, Photo, Category, BrandName, Price, Rating, description } = phon;
+  const {_id, Name, Photo, Price, Rating, description } = phon;
 
   return (
    <div className="">
@@ -30,5 +31,9 @@ const Applecard = ({ phon }) => {
   );
 };
 
+
+Applecard.propTypes = {
+  phon:PropTypes.object,
+  }
 
 export default Applecard;

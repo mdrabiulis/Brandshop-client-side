@@ -5,7 +5,6 @@ const LightDark = () => {
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
 
-
   const handleToggle = (e) => {
     if (e.target.checked) {
       setTheme("dark");
@@ -13,7 +12,6 @@ const LightDark = () => {
       setTheme("light");
     }
   };
-
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -23,7 +21,11 @@ const LightDark = () => {
   return (
     <div>
       <label className="swap swap-rotate">
-        <input type="checkbox" onChange={handleToggle} checked={theme === "light" ? false : true}/>
+        <input
+          type="checkbox"
+          onChange={handleToggle}
+          checked={theme === "light" ? false : true}
+        />
 
         <svg
           className="swap-on fill-current w-7 h-7"

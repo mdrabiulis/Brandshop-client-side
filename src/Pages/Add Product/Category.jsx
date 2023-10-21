@@ -1,8 +1,6 @@
 import Swal from "sweetalert2";
 
 const Category = () => {
-  
-
   const handelAddProduct = (event) => {
     event.preventDefault();
     const from = event.target;
@@ -14,7 +12,6 @@ const Category = () => {
     const Rating = from.Rating.value;
     const description = from.description.value;
     const products = {
-     
       Name,
       Photo,
       Category,
@@ -46,7 +43,7 @@ const Category = () => {
   };
   return (
     <div className="">
-      <div className="max-w-[1320px] min-h-[70vh]  mx-auto  bg-base-200 px-8 rounded">
+      <div className="max-w-[1320px] min-h-[70vh]  mx-auto  bg-[#d6d5b5] px-8 rounded">
         <div className="text-center px-52">
           <h2 className="text-[45px] text-[#374151]">Add Product</h2>
         </div>
@@ -65,7 +62,7 @@ const Category = () => {
                   name="Name"
                   placeholder="Enter products Name"
                   className="input input-bordered font-raleway "
-                  // required
+                  required
                 />
               </div>
 
@@ -81,7 +78,7 @@ const Category = () => {
                   name="Photo"
                   placeholder="Enter products Photo url"
                   className="input input-bordered font-raleway"
-                  // required
+                  required
                 />
               </div>
 
@@ -97,7 +94,7 @@ const Category = () => {
                   name="Category"
                   placeholder="Enter products category"
                   className="input input-bordered font-raleway"
-                  // required
+                  required
                 />
               </div>
             </div>
@@ -115,7 +112,7 @@ const Category = () => {
                   name="BrandName"
                   placeholder="Enter products Brand Name"
                   className="input input-bordered font-raleway"
-                  // required
+                  required
                 />
               </div>
 
@@ -131,7 +128,7 @@ const Category = () => {
                   name="Price"
                   placeholder="Enter products Price"
                   className="input input-bordered font-raleway"
-                  // required
+                  required
                 />
               </div>
 
@@ -147,7 +144,7 @@ const Category = () => {
                   name="Rating"
                   placeholder="Enter products Rating"
                   className="input input-bordered font-raleway"
-                  // required
+                  required
                 />
               </div>
             </div>
@@ -165,7 +162,7 @@ const Category = () => {
               name="description"
               placeholder="Enter products Short description"
               className="input input-bordered font-raleway"
-              // required
+              required
             />
           </div>
 
@@ -174,22 +171,6 @@ const Category = () => {
           </button>
         </form>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </div>
   );
 };

@@ -1,5 +1,3 @@
-
-
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { useState } from "react";
 // import { FaEyeSlash, FaEye } from "react-icons/fa";
@@ -8,16 +6,13 @@ import Googlelogin from "../Google/Googlelogin";
 import useAuthContext from "../../Components/Hooks/useAuthContext";
 import Swal from "sweetalert2";
 
-
 const Login = () => {
-  const { LoginUser} = useAuthContext();
+  const { LoginUser } = useAuthContext();
   const [userLoginErro, setUserLoginErro] = useState("");
   const [loginUserSuccessful, setLoginUserSuccessful] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
-
 
   const hendleLogin = (e) => {
     e.preventDefault();
@@ -25,47 +20,46 @@ const Login = () => {
     const email = from.email.value;
     const password = from.password.value;
 
-
-
     setUserLoginErro("");
     setLoginUserSuccessful("");
 
-    
     LoginUser(email, password)
       .then((res) => {
         console.log(res.user);
         setLoginUserSuccessful("Login Successful");
         // navigate(location?.state? location.state : "/")
         Swal.fire({
-          icon: 'success',
-          title: 'Login Successful...',
-          text: '',
-          footer: '<a href="">Why do I have this issue?</a>'
-        })
-        navigate(location?.state? location.state : "/")
+          icon: "success",
+          title: "Login Successful...",
+          text: "",
+          footer: '<a href="">Why do I have this issue?</a>',
+        });
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error.message);
         setUserLoginErro(error.message);
         Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong!',
-          footer: '<a href="">Why do I have this issue?</a>'
-        })
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+          footer: '<a href="">Why do I have this issue?</a>',
+        });
       });
   };
-
 
   return (
     <div className="hero min-h-screen bg-base-200 font-roboto">
       <div className="hero-content flex-col ">
         <div className="text-center ">
-           <h1 className="text-5xl font-bold">Login Account</h1>
+          <h1 className="text-5xl font-bold">Login Account</h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form onSubmit={hendleLogin} className="card-body w-[450px] bg-[#d6d5b5] rounded-md ">
-          {/* <form className="card-body w-[450px] bg-[#d6d5b5] rounded-md"> */}
+          <form
+            onSubmit={hendleLogin}
+            className="card-body w-[450px] bg-[#d6d5b5] rounded-md "
+          >
+            {/* <form className="card-body w-[450px] bg-[#d6d5b5] rounded-md"> */}
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -90,13 +84,16 @@ const Login = () => {
                 required
               />
               <span
-              className="absolute top-12 right-4"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
-            </span>
+                className="absolute top-12 right-4"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+              </span>
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover font-roboto">
+                <a
+                  href="#"
+                  className="label-text-alt link link-hover font-roboto"
+                >
                   Forgot password?
                 </a>
               </label>
@@ -125,7 +122,6 @@ const Login = () => {
             </h2>
             <Googlelogin></Googlelogin>
           </form>
-          
         </div>
       </div>
     </div>

@@ -3,9 +3,8 @@ import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
   const updateProductId = useLoaderData();
-  const {_id, Name, Photo, Category, BrandName, Price, Rating, description } =
+  const { _id, Name, Photo, Category, BrandName, Price, Rating, description } =
     updateProductId;
-  
 
   const handelUpdateProduct = (event) => {
     event.preventDefault();
@@ -26,7 +25,6 @@ const UpdateProduct = () => {
       Rating,
       description,
     };
-   
 
     fetch(`http://localhost:5000/product/${_id}`, {
       method: "PUT",
@@ -39,20 +37,28 @@ const UpdateProduct = () => {
       .then((data) => {
         console.log(data);
 
-        Swal.fire({
-          // position: 'top-end',
-          icon: "success",
-          title: "Your Update has been saved",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-
-        from.reset();
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            icon: "success",
+            title: "success",
+            text: "Update Your Products Successfully ....",
+          });
+        }
       });
+      //   Swal.fire({
+      //     // position: 'top-end',
+      //     icon: "success",
+      //     title: "Your Update has been saved",
+      //     showConfirmButton: false,
+      //     timer: 1500,
+      //   });
+
+      //   from.reset();
+      // });
   };
   return (
     <div className="">
-      <div className="max-w-[1320px] min-h-[70vh]  mx-auto  bg-base-200 px-8 rounded mt-10">
+      <div className="max-w-[1320px] min-h-[70vh]  mx-auto  bg-[#d6d5b5] px-8 rounded mt-10">
         <div className="text-center px-52">
           <h2 className="text-[45px] text-[#374151]">Update Product</h2>
         </div>
@@ -86,7 +92,7 @@ const UpdateProduct = () => {
                 <input
                   type="url"
                   name="Photo"
-                    defaultValue={Photo}
+                  defaultValue={Photo}
                   placeholder="Enter products Photo Url"
                   className="input input-bordered font-raleway"
                   required
@@ -103,7 +109,7 @@ const UpdateProduct = () => {
                 <input
                   type="text"
                   name="Category"
-                    defaultValue={Category}
+                  defaultValue={Category}
                   placeholder="Enter products category"
                   className="input input-bordered font-raleway"
                   required
@@ -183,7 +189,7 @@ const UpdateProduct = () => {
           </div>
 
           <button className=" w-full bg-[#FF6224] mt-8 text-center border-2 border-black rounded h-10  text-white text-[24px]">
-          Update Product
+            Update Product
           </button>
         </form>
       </div>
