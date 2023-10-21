@@ -10,7 +10,8 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="footer p-10 bg-base-200 text-base-content mt-8">
+      {/* <footer className="footer w-[100%] p-10 bg-base-200 text-base-content mt-8"> */}
+      <footer className="grid gap-10 md:gap-10 lg:gap-6 md:grid-cols-2 lg:grid-cols-4 w-[100%] p-10 bg-base-200 text-base-content mt-8">
         <div className="">
           {/* ========== LOGO ============  */}
           <div className=" ">
@@ -105,7 +106,7 @@ const Footer = () => {
         {/* ========== socele ============  */}
         <nav>
           <header className="footer-title">Social</header>
-          <div className="grid grid-flow-col gap-4">
+          <div className="grid grid-flow-col">
             <a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -1,45 +1,25 @@
-// import imgBanner from '../../../public/404/banner2.jpg'
-import imgBanner from "../../../public/404/banner1.png";
+import imgBanner from "/public/404/banner1.png";
 
 const Banner = () => {
   return (
-  
-    <div>
+    <div className="mb-8">
       <div className="relative">
         <div className="">
-          <img src={imgBanner} alt="" className=" w-[500px] md:w-[1920px] h-[600px] md:h-[800px]" />
+          <img
+            src={imgBanner}
+            alt=""
+            className=" w-[500px] md:w-[100%] h-[600px] md:h-[800px]"
+          />
         </div>
-        <div className="absolute top-2/4 left-40  ">
-          <h2 className="text-5xl  ">
-            Would you like a Cup of Delicious Coffee?
+        <div className="absolute top-[40%] md:top-2/4 left-0   ">
+          <h2 className="text-black text-3xl  w-[60%] md:w-[65%] font-roboto font-bold ml-2 lg:ml-10 md:text-5xl">
+            Would you like Online Shopping? You can see our products.
           </h2>
-          <p className="text-[16px] my-3 ">
-            It is coffee time - Sip & Savor - Relaxation in every sip! Get the
-            nostalgia back!! <br></br> Your companion of every moment!!! Enjoy
-            the beautiful moments and make them memorable.
+          <p className="text-black my-3 ml-2 lg:ml-10 w-[60%] text-lg font-roboto ">
+            It is the activity or action of buying products or services over the
+            Internet. It means going online,<br></br> landing on a seller s
+            website, selecting something, and arranging for its delivery.
           </p>
-          {/* <div className="join">
-            <div>
-              <div>
-                <input
-                  className="input input-bordered join-item"
-                  placeholder="Search"
-                />
-              </div>
-            </div>
-            <select className="select select-bordered join-item">
-              <option disabled selected>
-                Filter
-              </option>
-              <option>Sci-fi</option>
-              <option>Drama</option>
-              <option>Action</option>
-            </select>
-            <div className="indicator">
-              <span className="indicator-item badge badge-secondary">new</span>
-              <button className="btn join-item">Search</button>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>
