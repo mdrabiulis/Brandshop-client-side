@@ -57,7 +57,7 @@ const Login = () => {
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form
             onSubmit={hendleLogin}
-            className="card-body w-[450px] bg-[#d6d5b5] rounded-md "
+            className="card-body md:w-[450px] bg-[#d6d5b5] rounded-md "
           >
             {/* <form className="card-body w-[450px] bg-[#d6d5b5] rounded-md"> */}
             <div className="form-control">

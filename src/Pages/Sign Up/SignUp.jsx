@@ -78,15 +78,16 @@ const SignUp = () => {
   };
 
   return (
+    // <div className="hero min-h-screen bg-base-200">
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col ">
-        <div className="text-center ">
+      <div className="text-center ">
           <h1 className="text-5xl font-bold">SignUp Now</h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form
             onSubmit={hendleSignUp}
-            className="card-body w-[450px] bg-[#d6d5b5] rounded-md "
+            className="card-body  md:w-[450px] bg-[#d6d5b5] rounded-md "
           >
             {/* =============== name ====================== */}
             <div className="form-control">
