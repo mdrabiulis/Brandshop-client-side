@@ -60,6 +60,8 @@ const AddtoCart = ({ cart, allAddtoCart, setAllAddtoCart }) => {
   );
 };
 AddtoCart.propTypes = {
-  cart:PropTypes.object
+  cart:PropTypes.object,
+  allAddtoCart:PropTypes.object,
+  setAllAddtoCart:PropTypes.array,
   }
 export default AddtoCart;
