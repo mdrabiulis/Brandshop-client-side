@@ -44,7 +44,7 @@ const Category = () => {
   return (
     <div className="">
       <div className="max-w-[1320px] min-h-[70vh]  mx-auto  bg-[#d6d5b5] px-8 rounded">
-        <div className="text-center px-52">
+        <div className="text-center px-0 md:px-52">
           <h2 className="text-[45px] text-[#374151]">Add Product</h2>
         </div>
         <form onSubmit={handelAddProduct}>

@@ -58,9 +58,9 @@ const UpdateProduct = () => {
   };
   return (
     <div className="">
-      <div className="max-w-[1320px] min-h-[70vh]  mx-auto  bg-[#d6d5b5] px-8 rounded mt-10">
-        <div className="text-center px-52">
-          <h2 className="text-[45px] text-[#374151]">Update Product</h2>
+      <div className="max-w-[1320px] min-h-[70vh] border border-red-700  mx-auto  bg-[#d6d5b5] px-8 rounded mt-10">
+        <div className="text-center px-0 md:px-52">
+          <h2 className="text-[45px] text-black ">Update Product</h2>
         </div>
         <form onSubmit={handelUpdateProduct}>
           <div className="grid grid-cols-2 gap-5 ">
