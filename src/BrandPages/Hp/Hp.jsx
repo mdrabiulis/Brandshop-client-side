@@ -8,7 +8,7 @@ const Hp = () => {
   const [hp, setHp] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products/Hp")
+    fetch("https://server-side-black.vercel.app/products/Hp")
       .then((res) => res.json())
       .then((data) => {
         setHp(data);

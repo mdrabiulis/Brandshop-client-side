@@ -22,7 +22,7 @@ const Category = () => {
     };
     // console.log(user);
 
-    fetch("http://localhost:5000/products", {
+    fetch("https://server-side-black.vercel.app/products", {
       method: "post",
       headers: {
         "Content-Type": "application/json",

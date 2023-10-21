@@ -18,7 +18,7 @@ const AddtoCart = ({ cart, allAddtoCart, setAllAddtoCart }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         // fetch(`http://localhost:5000addcart/${_id}`, {
-        fetch(`http://localhost:5000/addcart/${_id}`, {
+        fetch(`https://server-side-black.vercel.app/addcart/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

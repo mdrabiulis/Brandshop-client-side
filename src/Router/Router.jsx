@@ -57,7 +57,7 @@ const myRouter = createBrowserRouter([
           </Private>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.id}`),
+          fetch(`https://server-side-black.vercel.app/product/${params.id}`),
       },
 
       {
@@ -82,13 +82,21 @@ const myRouter = createBrowserRouter([
       },
       {
         path: "/Google",
-        element: <Private><Google></Google></Private>,
+        element: (
+          <Private>
+            <Google></Google>
+          </Private>
+        ),
       },
       {
         path: "/details/:id",
-        element: <Private><Details></Details></Private>,
+        element: (
+          <Private>
+            <Details></Details>
+          </Private>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.id}`),
+          fetch(`https://server-side-black.vercel.app/product/${params.id}`),
       },
       {
         path: "/addcarts/:userName",
@@ -97,23 +105,22 @@ const myRouter = createBrowserRouter([
             <Mycart></Mycart>
           </Private>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/addcarts/${params.userName}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://server-side-black.vercel.app/addcarts/${params.userName}`
+          ),
       },
       {
-        path:"/collections",
+        path: "/collections",
         element: <Collections></Collections>,
-        loader :() => fetch('http://localhost:5000/products')
+        loader: () => fetch("https://server-side-black.vercel.app/products"),
       },
       {
-        path:"/offers",
+        path: "/offers",
         element: <Offers></Offers>,
-        loader :() => fetch('http://localhost:5000/products')
+        loader: () => fetch("https://server-side-black.vercel.app/products"),
       },
-      // {
-      //   path:"/collections",
-      //   element: <Collections></Collections>,
-      //   loader :() => fetch('http://localhost:5000/products')
-      // },
+      {},
       {},
       {},
       {},

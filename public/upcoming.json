@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "title": "Alcatel",
+      "img": "https://i.ibb.co/SsHTtvK/Untitled-1.png"
+    },
+    {
+      "id": 2,
+      "title": "Nokia",
+      "img": "https://i.ibb.co/f2RCXnC/Untitled-2.png"
+    },
+    {
+      "id": 3,
+      "title": "Motorola",
+      "img": "https://i.ibb.co/pX3YqC3/Untitled-3.png"
+    },
+    {
+      "id": 4,
+      "title": "Vivo",
+      "img": "https://i.ibb.co/8NdGBn9/Untitled-4.png"
+    },
+    {
+      "id": 5,
+      "title": "Huawei",
+      "img": "https://i.ibb.co/NWJ06Cx/Untitled-5.png"
+    },
+    {
+      "id": 6,
+      "title": "LG",
+      "img": "https://i.ibb.co/wQfXbHp/Untitled-6.png"
+    }
+  ]
+  

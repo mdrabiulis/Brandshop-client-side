@@ -12,7 +12,7 @@ const Details = () => {
     detailsData;
 
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("https://server-side-black.vercel.app/user")
       .then((res) => res.json())
       .then((data) => {
         data.acknowledged
@@ -47,7 +47,7 @@ const Details = () => {
       userName: user?.uid,
     };
 
-    fetch("http://localhost:5000/addcart", {
+    fetch("https://server-side-black.vercel.app/addcart", {
       method: "post",
       headers: {
         "Content-Type": "application/json",

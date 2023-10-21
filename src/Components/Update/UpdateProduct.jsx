@@ -26,7 +26,7 @@ const UpdateProduct = () => {
       description,
     };
 
-    fetch(`http://localhost:5000/product/${_id}`, {
+    fetch(`https://server-side-black.vercel.app/product/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

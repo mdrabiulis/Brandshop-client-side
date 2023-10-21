@@ -8,7 +8,7 @@ const Oneplus = () => {
   // const [applephon, setApplesphon] = useState({})
 
   useEffect(() => {
-    fetch("http://localhost:5000/products/Oneplus")
+    fetch("https://server-side-black.vercel.app/products/Oneplus")
       .then((res) => res.json())
       .then((data) => {
         setOneplus(data);

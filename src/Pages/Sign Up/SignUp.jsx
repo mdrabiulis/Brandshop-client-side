@@ -41,7 +41,7 @@ const SignUp = () => {
           userUpdateProfile(name, photo)
             .then(() => {
               const user = { email };
-              fetch("http://localhost:5000/user", {
+              fetch("https://server-side-black.vercel.app/user", {
                 method: "post",
                 headers: {
                   "Content-Type": "application/json",
