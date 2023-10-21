@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import Swal from "sweetalert2";
+
 import Applecard from "../Apple/Applecard";
+import NotPage from "../../Error/NotPage";
 
 const Samsung = () => {
-  const [lenovo, setLenovo] = useState([]);
+  const [samsung, setSamsung] = useState([]);
 
   useEffect(() => {
     fetch("")
@@ -18,16 +19,7 @@ const Samsung = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        if (data.length > 0) {
-          return setLenovo(data);
-        } else {
-          return Swal.fire({
-            icon: "question",
-            title: "Oops...",
-            text: "Not Found Data",
-            footer: "",
-          });
-        }
+        setSamsung(data);
       });
   }, []);
 
@@ -35,10 +27,10 @@ const Samsung = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {lenovo.map((phon) => (
-          <Applecard key={phon._id} phon={phon}></Applecard>
-        ))}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      {
+        samsung.length > 0 ? samsung.map((phon) => (<Applecard key={phon._id} phon={phon} ></Applecard>)):<NotPage></NotPage>
+      }
       </div>
     </div>
   );

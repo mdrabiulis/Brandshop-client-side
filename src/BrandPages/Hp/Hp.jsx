@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import Swal from "sweetalert2";
 import Applecard from "../Apple/Applecard";
+import NotPage from "../../Error/NotPage";
 
 const Hp = () => {
+  
   const [hp, setHp] = useState([]);
+
+
+
+
 
   useEffect(() => {
     fetch(
@@ -12,25 +17,18 @@ const Hp = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        if (data.length > 0) {
-          return setHp(data);
-        } else {
-          return Swal.fire({
-            icon: "question",
-            title: "Oops...",
-            text: "Not Found Data",
-            footer: "",
-          });
-        }
+        setHp(data);
       });
   }, []);
 
   return (
     <div>
-      <div className="grid grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {hp.map((phon) => (
-          <Applecard key={phon._id} phon={phon}></Applecard>
-        ))}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {hp.length > 0 ? (
+          hp.map((phon) => <Applecard key={phon._id} phon={phon}></Applecard>)
+        ) : (
+          <NotPage></NotPage>
+        )}
       </div>
     </div>
   );

@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import Applecard from "./Applecard";
-import Swal from "sweetalert2";
 import Swiperslider from "../../Components/Swiper/Swiperslider ";
+import NotPage from "../../Error/NotPage";
+// import useAuthContext from "../../Components/Hooks/useAuthContext";
 
-// import Swiperslider from "../../Components/Swiper/Swiperslider ";
+
 
 const Apple = () => {
+  // const { loading } = useAuthContext();
   const [apple, setApple] = useState([]);
 
   useEffect(() => {
@@ -14,30 +16,22 @@ const Apple = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        if (data.length > 0) {
-          return setApple(data);
-        } else {
-          return Swal.fire({
-            icon: "question",
-            title: "Oops...",
-            text: "Not Found Data",
-            footer: "",
-          });
-        }
+        setApple(data);
       });
   }, []);
 
-  // const findCategory = apple.filter((item) => item.BrandName === "Apple");
-  // setAlldata(findCategory);
+
 
   return (
     <div>
       <Swiperslider></Swiperslider>
-      <div className="grid grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {apple.map((phon) => (
-          <Applecard key={phon._id} phon={phon}></Applecard>
-        ))}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      {
+        apple.length > 0 ? apple.map((phon) => (<Applecard key={phon._id} phon={phon} ></Applecard>)) : <NotPage></NotPage>
+      }
+
       </div>
+      
     </div>
   );
 };

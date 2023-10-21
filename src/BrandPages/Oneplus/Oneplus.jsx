@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Applecard from "../Apple/Applecard";
-import Swal from "sweetalert2";
+import NotPage from "../../Error/NotPage";
 
 const Oneplus = () => {
   const [oneplus, setOneplus] = useState([]);
@@ -12,25 +12,16 @@ const Oneplus = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        if (data.length > 0) {
-          return setOneplus(data);
-        } else {
-          return Swal.fire({
-            icon: "question",
-            title: "Oops...",
-            text: "Not Found Data",
-            footer: "",
-          });
-        }
+        setOneplus(data);
       });
   }, []);
 
   return (
     <div>
-      <div className="grid grid-cols-4 gap-8">
-        {oneplus.map((phon) => (
-          <Applecard key={phon._id} phon={phon}></Applecard>
-        ))}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      {
+        oneplus.length > 0 ? oneplus.map((phon) => (<Applecard key={phon._id} phon={phon} ></Applecard>)):<NotPage></NotPage>
+      }
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const ErrorPage = () => {
             <h2 className="text-[#374151] font-roboto">Back to home</h2>
             </Link>
            </div>
-           <img src={img404} alt="" className=' mx-auto'/>
+           <img src={img404} alt="" className=' rounded-md mx-auto'/>
         </div>
     );
 };

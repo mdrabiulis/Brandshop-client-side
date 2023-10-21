@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import Swal from "sweetalert2";
 import Applecard from "../Apple/Applecard";
+import NotPage from "../../Error/NotPage";
+
 
 const Google = () => {
   const [google, setGoogle] = useState([]);
@@ -12,25 +13,20 @@ const Google = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        if (data.length > 0) {
-          return setGoogle(data);
-        } else {
-          return Swal.fire({
-            icon: "question",
-            title: "Oops...",
-            text: "Not Found Data",
-            footer: "",
-          });
-        }
+        setGoogle(data);
       });
   }, []);
 
   return (
     <div>
-      <div className="grid grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {google.map((phon) => (
-          <Applecard key={phon._id} phon={phon}></Applecard>
-        ))}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {google.length > 0 ? (
+          google.map((phon) => (
+            <Applecard key={phon._id} phon={phon}></Applecard>
+          ))
+        ) : (
+          <NotPage></NotPage>
+        )}
       </div>
     </div>
   );
