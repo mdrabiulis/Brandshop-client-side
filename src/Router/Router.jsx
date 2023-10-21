@@ -18,6 +18,7 @@ import Details from "../Components/Details/Details";
 import Mycart from "../Pages/My Cart/Mycart";
 import Collections from "../Pages/Collections/Collections";
 import Offers from "../Pages/Offers/Offers";
+import Blogs from "../Pages/Blogs/Blogs";
 
 const myRouter = createBrowserRouter([
   {
@@ -82,11 +83,7 @@ const myRouter = createBrowserRouter([
       },
       {
         path: "/Google",
-        element: (
-          <Private>
-            <Google></Google>
-          </Private>
-        ),
+        element: <Google></Google>,
       },
       {
         path: "/details/:id",
@@ -120,7 +117,10 @@ const myRouter = createBrowserRouter([
         element: <Offers></Offers>,
         loader: () => fetch("https://server-side-black.vercel.app/products"),
       },
-      {},
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>,
+      },
       {},
       {},
       {},

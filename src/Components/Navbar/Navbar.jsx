@@ -4,6 +4,7 @@ import logo from "../../../public/404/logo2.png";
 import "./navebar.css";
 import useAuthContext from "../Hooks/useAuthContext";
 import LightDark from "../Light Dark Mode Toggle/LightDark";
+// import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, SignOutUser, loading } = useAuthContext();
@@ -16,6 +17,16 @@ const Navbar = () => {
     SignOutUser()
       .then((res) => {
         console.log(res.user);
+        
+          // Swal.fire({
+          //   position: 'top-end',
+          //   icon: 'success',
+          //   title: 'Your work has been saved',
+          //   showConfirmButton: false,
+          //   timer: 1500
+          // })
+       
+        
       })
       .catch((error) => {
         console.log(error);

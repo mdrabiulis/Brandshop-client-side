@@ -36,10 +36,7 @@ const MarqueeCard = () => {
                 </h2>
                 <div className="flex gap-4 text-base font-roboto font-semibold">
                   <div className="">
-                    <p className="">
-                      Price: ${most.Price}
-                    </p>
-                    
+                    <p className="">Price: ${most.Price}</p>
                   </div>
                   <p className="flex gap-2">
                     <Ratings Rating={most.Rating}></Ratings>
