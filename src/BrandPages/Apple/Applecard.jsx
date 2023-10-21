@@ -22,8 +22,8 @@ const Applecard = ({ phon }) => {
     </div>
     <p>{description}</p>
     <div className="card-actions justify-between">
-      <Link to={`/updateproduct/${_id}`}><button className="btn btn-primary">Update</button></Link>
-      <Link to={`/details/${_id}`}><button className="btn btn-primary">Details</button></Link>
+      <Link to={`/updateproduct/${_id}`}><button className="w-28 h-12 rounded-md text-white font-roboto text-base hover:text-lg  bg-[#FF6224] hover:bg-[#dd873c]">Update</button></Link>
+      <Link to={`/details/${_id}`}><button className="w-28 h-12 rounded-md text-white font-roboto text-base hover:text-lg  bg-[#FF6224] hover:bg-[#dd873c]">Details</button></Link>
     </div>
   </div>
 </div>

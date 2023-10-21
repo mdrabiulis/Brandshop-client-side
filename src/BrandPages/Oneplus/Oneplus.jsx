@@ -7,7 +7,9 @@ const Oneplus = () => {
   // const [applephon, setApplesphon] = useState({})
 
   useEffect(() => {
-    fetch("http://localhost:5000/products/Oneplus")
+    fetch(
+      "https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/products/Oneplus"
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) {
@@ -17,14 +19,11 @@ const Oneplus = () => {
             icon: "question",
             title: "Oops...",
             text: "Not Found Data",
-            footer: '',
+            footer: "",
           });
         }
-        
       });
   }, []);
-
-
 
   return (
     <div>

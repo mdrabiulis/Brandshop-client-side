@@ -1,7 +1,5 @@
 import Swal from "sweetalert2";
-import PropTypes from 'prop-types';
-
-
+import PropTypes from "prop-types";
 
 const AddtoCart = ({ cart, allAddtoCart, setAllAddtoCart }) => {
   const { _id, Name, Photo } = cart;
@@ -20,16 +18,19 @@ const AddtoCart = ({ cart, allAddtoCart, setAllAddtoCart }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         // fetch(`http://localhost:5000/addcart/${_id}`, {
-        fetch(`http://localhost:5000/addcart/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/addcart/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             // console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
               // const remaining = allAddtoCart.filter(additem =>additem._id !== _id);
-              const remaining = allAddtoCart.filter(item =>item._id !== _id)
+              const remaining = allAddtoCart.filter((item) => item._id !== _id);
               setAllAddtoCart(remaining);
             }
           });
@@ -60,8 +61,8 @@ const AddtoCart = ({ cart, allAddtoCart, setAllAddtoCart }) => {
   );
 };
 AddtoCart.propTypes = {
-  cart:PropTypes.object,
-  allAddtoCart:PropTypes.object,
-  setAllAddtoCart:PropTypes.array,
-  }
+  cart: PropTypes.object,
+  allAddtoCart: PropTypes.object,
+  setAllAddtoCart: PropTypes.array,
+};
 export default AddtoCart;

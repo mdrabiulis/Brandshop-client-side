@@ -6,15 +6,16 @@ import Applecard from "../Apple/Applecard";
 const Samsung = () => {
   const [lenovo, setLenovo] = useState([]);
 
-  useEffect(()=>{
-    fetch('')
-    .then((res) => res.json())
-    .then(data=> console.log(data))
-  },[])
-
+  useEffect(() => {
+    fetch("")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products/Samsung")
+    fetch(
+      "https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/products/Samsung"
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) {

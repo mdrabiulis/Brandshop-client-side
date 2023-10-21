@@ -7,7 +7,9 @@ const Lenovo = () => {
   const [lenovo, setLenovo] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products/Lenovo")
+    fetch(
+      "https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/products/Lenovo"
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) {

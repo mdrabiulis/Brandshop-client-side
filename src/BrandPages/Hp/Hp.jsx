@@ -7,7 +7,9 @@ const Hp = () => {
   const [hp, setHp] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products/Hp")
+    fetch(
+      "https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/products/Hp"
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) {

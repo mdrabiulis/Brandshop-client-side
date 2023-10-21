@@ -8,15 +8,10 @@ import Swiperslider from "../../Components/Swiper/Swiperslider ";
 const Apple = () => {
   const [apple, setApple] = useState([]);
 
-
-
-
-
-
-
-
   useEffect(() => {
-    fetch("http://localhost:5000/products/Apple")
+    fetch(
+      "https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/products/Apple"
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) {
@@ -36,13 +31,11 @@ const Apple = () => {
   // setAlldata(findCategory);
 
   return (
-    <div >
-      <Swiperslider ></Swiperslider>
+    <div>
+      <Swiperslider></Swiperslider>
       <div className="grid grid-cols-3 gap-8 max-w-7xl mx-auto">
         {apple.map((phon) => (
-          <Applecard 
-          key={phon._id} 
-          phon={phon}></Applecard>
+          <Applecard key={phon._id} phon={phon}></Applecard>
         ))}
       </div>
     </div>

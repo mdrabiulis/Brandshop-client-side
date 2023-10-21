@@ -70,11 +70,6 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-
-
-
-       
-
    {/*===== My Cart ====== */}
 
         {user && <div className="">

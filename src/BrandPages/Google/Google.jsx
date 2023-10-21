@@ -7,7 +7,9 @@ const Google = () => {
   const [google, setGoogle] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products/Google")
+    fetch(
+      "https://server-side-g9kd9eols-md-rabiul-islams-projects-c9334bf4.vercel.app/products/Google"
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) {
