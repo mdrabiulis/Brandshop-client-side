@@ -16,6 +16,8 @@ import Apple from "../BrandPages/Apple/Apple";
 import Google from "../BrandPages/Google/Google";
 import Details from "../Components/Details/Details";
 import Mycart from "../Pages/My Cart/Mycart";
+import Collections from "../Pages/Collections/Collections";
+import Offers from "../Pages/Offers/Offers";
 
 const myRouter = createBrowserRouter([
   {
@@ -95,9 +97,29 @@ const myRouter = createBrowserRouter([
             <Mycart></Mycart>
           </Private>
         ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/addcarts/${params.userName}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/addcarts/${params.userName}`),
       },
+      {
+        path:"/collections",
+        element: <Collections></Collections>,
+        loader :() => fetch('http://localhost:5000/products')
+      },
+      {
+        path:"/offers",
+        element: <Offers></Offers>,
+        loader :() => fetch('http://localhost:5000/products')
+      },
+      // {
+      //   path:"/collections",
+      //   element: <Collections></Collections>,
+      //   loader :() => fetch('http://localhost:5000/products')
+      // },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
       {},
     ],
   },

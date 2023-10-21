@@ -1,5 +1,6 @@
 import { AiOutlineStar } from "react-icons/ai";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import PropTypes from 'prop-types';
 
 const Ratings = ({Rating}) => {
     // const Rating = 3.5;
@@ -20,10 +21,13 @@ const Ratings = ({Rating}) => {
     );
   });
   return (
-    <div className="flex gap-2 ">
+    <div className="flex">
       {ratingStar}
     </div>
   );
 };
 
 export default Ratings;
+Ratings.propTypes = {
+  Rating:PropTypes.object,
+  }
